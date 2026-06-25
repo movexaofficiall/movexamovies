@@ -153,7 +153,7 @@
 
         /* Main Grid Containers */
         .container {
-            padding: 40px 6% 60px 6%;
+            padding: 40px 6% 20px 6%;
             width: 100%;
         }
 
@@ -272,6 +272,32 @@
             border-radius: 4px;
             color: #c5c6c7;
             font-weight: 500;
+        }
+
+        /* Clean Embedded Live Player Layout Container */
+        .live-stream-section {
+            padding: 40px 6%;
+            width: 100%;
+        }
+
+        .live-player-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* Perfect 16:9 Aspect Ratio */
+            background-color: #12141c;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .live-player-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         /* Movie Details Page View styling */
@@ -453,7 +479,7 @@
             text-align: center;
             color: #666;
             font-size: 14px;
-            margin-top: 60px;
+            margin-top: 40px;
             width: 100%;
         }
 
@@ -468,13 +494,13 @@
             .navbar { padding: 15px 4%; }
             .nav-links { display: none; }
             .hero { padding: 120px 4% 40px 4%; height: auto; min-height: 350px; }
-            .video-background { display: none; } /* Hide heavy background rendering logic loop fields on micro viewports */
+            .video-background { display: none; }
             .hero {
                 background: linear-gradient(to top, rgba(11, 12, 16, 1), rgba(11, 12, 16, 0.85)), 
                             url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=500') no-repeat center center/cover;
             }
             .hero h1 { font-size: 36px; }
-            .container { padding: 30px 4%; }
+            .container, .live-stream-section { padding: 30px 4%; }
             .movie-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
             .movie-info { padding: 12px; }
             .movie-title { font-size: 15px; margin-bottom: 8px; }
@@ -485,7 +511,6 @@
 </head>
 <body>
 
-    <!-- Header Navigation Bar -->
     <header class="navbar">
         <div class="logo" onclick="showHomeView()">MOVEXA</div>
         <ul class="nav-links">
@@ -496,12 +521,9 @@
         </ul>
     </header>
 
-    <!-- HOME VIEW BLOCK -->
     <div id="home-view" class="view-section active-view">
-        <!-- Featured Hero Spotlight with Video Background -->
         <section class="hero">
             <div class="video-background">
-                <!-- Autoplayed, muted, looping YouTube wrapper tracking playlist variables -->
                 <iframe src="https://www.youtube.com/embed/tLeBDumanoc?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=tLeBDumanoc&iv_load_policy=3&enablejsapi=1" 
                         allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
@@ -514,16 +536,22 @@
             </div>
         </section>
 
-        <!-- Main Upcoming Movies Section -->
         <main class="container">
             <h2 class="section-title">Upcoming Movies</h2>
             <div class="movie-grid" id="main-movies-grid">
-                <!-- Movie Cards will inject dynamically via JavaScript below -->
-            </div>
+                </div>
         </main>
+
+        <section class="live-stream-section">
+            <h2 class="section-title">Live Presentation</h2>
+            <div class="live-player-container">
+                <iframe src="https://www.youtube.com/embed/f17J3AXVK5w?controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+        </section>
     </div>
 
-    <!-- MOVIE DETAIL VIEW BLOCK -->
     <div id="detail-view" class="view-section">
         <div class="container details-page">
             <div class="back-btn" onclick="showHomeView()">← Back to Home</div>
@@ -538,8 +566,7 @@
                         <span class="strip-badge" id="detail-age-rating">PG</span>
                         <span class="strip-runtime" id="detail-runtime">2h 0m</span>
                         <div class="genres-wrapper" id="detail-genres">
-                            <!-- Genre pills injected here -->
-                        </div>
+                            </div>
                     </div>
 
                     <div class="details-label">Synopsis Description</div>
@@ -547,8 +574,7 @@
 
                     <div class="details-label">Principal Cast Members</div>
                     <div class="cast-grid" id="detail-cast-grid">
-                        <!-- Cast info loops here -->
-                    </div>
+                        </div>
 
                     <div class="meta-info-block">
                         <div class="meta-item">
@@ -565,12 +591,10 @@
         </div>
     </div>
 
-    <!-- Global Platform Footer -->
     <footer>
         <p>&copy; 2026 MOVEXA. Experience the Next Chapter of Cinema.</p>
     </footer>
 
-    <!-- Movie Data & UI Navigation Routing Logic -->
     <script>
         const movieDataset = [
             {
