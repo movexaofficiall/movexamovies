@@ -511,6 +511,7 @@
 </head>
 <body>
 
+    <!-- Header Navigation Bar -->
     <header class="navbar">
         <div class="logo" onclick="showHomeView()">MOVEXA</div>
         <ul class="nav-links">
@@ -521,7 +522,9 @@
         </ul>
     </header>
 
+    <!-- HOME VIEW BLOCK -->
     <div id="home-view" class="view-section active-view">
+        <!-- Featured Hero Spotlight with Video Background -->
         <section class="hero">
             <div class="video-background">
                 <iframe src="https://www.youtube.com/embed/tLeBDumanoc?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=tLeBDumanoc&iv_load_policy=3&enablejsapi=1" 
@@ -536,22 +539,27 @@
             </div>
         </section>
 
+        <!-- Main Upcoming Movies Section -->
         <main class="container">
             <h2 class="section-title">Upcoming Movies</h2>
             <div class="movie-grid" id="main-movies-grid">
-                </div>
+                <!-- Movie Cards inject dynamically via JavaScript below -->
+            </div>
         </main>
 
+        <!-- Embedded Live Streaming Frame Area -->
         <section class="live-stream-section">
             <h2 class="section-title">Live Presentation</h2>
             <div class="live-player-container">
-                <iframe src="https://www.youtube.com/embed/f17J3AXVK5w?controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" 
+                <!-- Added autoplay=1 and mute=1 loop flags for direct auto launch playback -->
+                <iframe src="https://www.youtube.com/embed/f17J3AXVK5w?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen></iframe>
             </div>
         </section>
     </div>
 
+    <!-- MOVIE DETAIL VIEW BLOCK -->
     <div id="detail-view" class="view-section">
         <div class="container details-page">
             <div class="back-btn" onclick="showHomeView()">← Back to Home</div>
@@ -566,7 +574,8 @@
                         <span class="strip-badge" id="detail-age-rating">PG</span>
                         <span class="strip-runtime" id="detail-runtime">2h 0m</span>
                         <div class="genres-wrapper" id="detail-genres">
-                            </div>
+                            <!-- Genre pills injected here -->
+                        </div>
                     </div>
 
                     <div class="details-label">Synopsis Description</div>
@@ -574,7 +583,8 @@
 
                     <div class="details-label">Principal Cast Members</div>
                     <div class="cast-grid" id="detail-cast-grid">
-                        </div>
+                        <!-- Cast info loops here -->
+                    </div>
 
                     <div class="meta-info-block">
                         <div class="meta-item">
@@ -591,10 +601,12 @@
         </div>
     </div>
 
+    <!-- Global Platform Footer -->
     <footer>
         <p>&copy; 2026 MOVEXA. Experience the Next Chapter of Cinema.</p>
     </footer>
 
+    <!-- Movie Data & UI Navigation Routing Logic -->
     <script>
         const movieDataset = [
             {
