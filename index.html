@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOVEXA - Upcoming Blockbusters</title>
+    <title>MOVEXA - Entertainment Hub & FIFA 2026</title>
     <style>
         /* Reset & Base Premium Theme Colors */
         * {
@@ -45,22 +45,31 @@
             cursor: pointer;
         }
 
-        .nav-links {
+        .audio-status-pill {
+            background: rgba(0, 223, 162, 0.15);
+            color: #00dfa2;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid rgba(0, 223, 162, 0.3);
             display: flex;
-            list-style: none;
-            gap: 25px;
+            align-items: center;
+            gap: 8px;
         }
 
-        .nav-links a {
-            color: #c5c6c7;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            transition: color 0.3s ease;
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00dfa2;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
         }
 
-        .nav-links a:hover, .nav-links .active {
-            color: #ffffff;
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.8); opacity: 0.5; }
         }
 
         /* Views management toggle */
@@ -73,7 +82,7 @@
             display: block;
         }
 
-        /* Hero Video Background container styling */
+        /* Hero Video Background styling */
         .hero {
             position: relative;
             height: 75vh;
@@ -87,18 +96,17 @@
             background-color: #0b0c10;
         }
 
-        /* Aspect-ratio calculated background frame container wrapper */
         .video-background {
             position: absolute;
             top: 50%;
             left: 50%;
             width: 100vw;
-            height: 56.25vw; /* Fixed 16:9 Aspect Ratio calculation */
+            height: 56.25vw;
             min-height: 75vh;
-            min-width: 133.33vh; /* Calculated width for portrait ratios mapping */
+            min-width: 133.33vh;
             transform: translate(-50%, -50%);
             z-index: 1;
-            pointer-events: none; /* Disables standard clickable overlay links */
+            pointer-events: none;
         }
 
         .video-background iframe {
@@ -107,7 +115,6 @@
             border: none;
         }
 
-        /* Dark overlay filter layout masking */
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -274,7 +281,98 @@
             font-weight: 500;
         }
 
-        /* Clean Embedded Live Player Layout Container */
+        /* FIFA 2026 Dashboard & Billboard Additions */
+        .fifa-section {
+            padding: 40px 6%;
+            width: 100%;
+        }
+
+        .fifa-section .section-title::before {
+            background-color: #00dfa2;
+        }
+
+        .fifa-banner {
+            background: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc);
+            padding: 45px 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(67, 100, 247, 0.2);
+            margin-bottom: 40px;
+        }
+
+        .fifa-banner h2 {
+            font-size: 38px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .fifa-banner p {
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 850px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .legends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .legend-card {
+            background-color: #12141c;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+        }
+
+        .legend-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 223, 162, 0.2);
+            border-color: rgba(0, 223, 162, 0.3);
+        }
+
+        .legend-image-box {
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            background-color: #1f2833;
+        }
+
+        .legend-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: transform 0.5s ease;
+        }
+
+        .legend-card:hover .legend-image-box img {
+            transform: scale(1.04);
+        }
+
+        .legend-meta-box {
+            padding: 20px;
+        }
+
+        .legend-meta-box h3 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .legend-meta-box span {
+            font-size: 13px;
+            color: #00dfa2;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Embedded Live Player Layout Container */
         .live-stream-section {
             padding: 40px 6%;
             width: 100%;
@@ -283,7 +381,7 @@
         .live-player-container {
             position: relative;
             width: 100%;
-            padding-top: 56.25%; /* Perfect 16:9 Aspect Ratio */
+            padding-top: 56.25%;
             background-color: #12141c;
             border-radius: 16px;
             overflow: hidden;
@@ -300,7 +398,7 @@
             border: none;
         }
 
-        /* Movie Details Page View styling */
+        /* Movie / Player Profile Component Page Views Setup */
         .details-page {
             padding-top: 110px;
             min-height: 100vh;
@@ -326,6 +424,13 @@
             background: #ff0033;
             border-color: #ff0033;
             box-shadow: 0 4px 15px rgba(255, 0, 51, 0.3);
+        }
+
+        .back-btn.football-back:hover {
+            background: #00dfa2;
+            border-color: #00dfa2;
+            color: #0b0c10;
+            box-shadow: 0 4px 15px rgba(0, 223, 162, 0.3);
         }
 
         .details-wrapper {
@@ -405,6 +510,10 @@
             margin-top: 35px;
         }
 
+        .details-label.football-lbl {
+            color: #00dfa2;
+        }
+
         .details-desc {
             font-size: 16px;
             line-height: 1.7;
@@ -441,6 +550,41 @@
             color: #888;
         }
 
+        /* Metrics Awards Layout Block */
+        .awards-container-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .stat-card {
+            background: #12141c;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.03);
+            text-align: center;
+        }
+
+        .stat-card .count {
+            font-size: 36px;
+            font-weight: 900;
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+
+        .stat-card.all-awards .count {
+            color: #00dfa2;
+        }
+
+        .stat-card .lbl {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #888;
+            letter-spacing: 0.5px;
+        }
+
         /* Extra Metadata block layout */
         .meta-info-block {
             display: flex;
@@ -452,6 +596,10 @@
             margin-top: 40px;
             border-left: 4px solid #ff0033;
             width: 100%;
+        }
+
+        .meta-info-block.football-block {
+            border-left-color: #00dfa2;
         }
 
         .meta-item {
@@ -470,6 +618,18 @@
             font-size: 16px;
             font-weight: 600;
             color: #fff;
+        }
+
+        /* Hidden Layer Player Audio Configuration */
+        .hidden-audio-matrix {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
         }
 
         /* Footer */
@@ -492,7 +652,6 @@
 
         @media (max-width: 768px) {
             .navbar { padding: 15px 4%; }
-            .nav-links { display: none; }
             .hero { padding: 120px 4% 40px 4%; height: auto; min-height: 350px; }
             .video-background { display: none; }
             .hero {
@@ -500,10 +659,11 @@
                             url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=500') no-repeat center center/cover;
             }
             .hero h1 { font-size: 36px; }
-            .container, .live-stream-section { padding: 30px 4%; }
-            .movie-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
-            .movie-info { padding: 12px; }
-            .movie-title { font-size: 15px; margin-bottom: 8px; }
+            .container, .live-stream-section, .fifa-section { padding: 30px 4%; }
+            .movie-grid, .legends-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
+            .movie-info, .legend-meta-box { padding: 12px; }
+            .movie-title, .legend-meta-box h3 { font-size: 15px; margin-bottom: 8px; }
+            .legend-image-box { height: 200px; }
             .details-main h1 { font-size: 32px; }
             .meta-info-block { gap: 20px; }
         }
@@ -514,15 +674,18 @@
     <!-- Header Navigation Bar -->
     <header class="navbar">
         <div class="logo" onclick="showHomeView()">MOVEXA</div>
-        <ul class="nav-links">
-            <li><a href="#" class="active" onclick="showHomeView()">Home</a></li>
-            <li><a href="#" onclick="showHomeView()">Upcoming Movies</a></li>
-            <li><a href="#">TV Shows</a></li>
-            <li><a href="#">Support</a></li>
-        </ul>
+        <div class="audio-status-pill">
+            <div class="pulse-dot"></div>
+            <span id="track-status">Audio Loading...</span>
+        </div>
     </header>
 
-    <!-- HOME VIEW BLOCK -->
+    <!-- INVISIBLE ENGINE LAYER FOR CHROMIUM SCRIPTED PLAYLIST CYCLING -->
+    <div class="hidden-audio-matrix">
+        <div id="audio-engine-mount"></div>
+    </div>
+
+    <!-- MAIN APP LANDING HOME VIEW CONTENT PANEL -->
     <div id="home-view" class="view-section active-view">
         <!-- Featured Hero Spotlight with Video Background -->
         <section class="hero">
@@ -535,23 +698,35 @@
             <div class="hero-content">
                 <span class="hero-tag">COMING SOON</span>
                 <h1>MOVEXA EXCLUSIVES</h1>
-                <p>Track the highly anticipated cinematic releases scheduled for this July. Click on any theatrical poster below to dive deep into complete character listings, cast panels, runtimes, and storyline breakdowns.</p>
+                <p>Track highly anticipated cinematic releases and major entertainment rollouts. Click on any theatrical cover or presentation portal below to dive deep into complete character breakdowns, cast matrices, and official profiles.</p>
             </div>
         </section>
 
-        <!-- Main Upcoming Movies Section -->
+        <!-- Movie Stream Grid Block Section -->
         <main class="container">
             <h2 class="section-title">Upcoming Movies</h2>
             <div class="movie-grid" id="main-movies-grid">
-                <!-- Movie Cards inject dynamically via JavaScript below -->
+                <!-- Injected via Script -->
             </div>
         </main>
+
+        <!-- LET'S GO FIFA 2026 APPRECIATION LOWER MATRIX AREA -->
+        <section class="fifa-section">
+            <div class="fifa-banner">
+                <h2>LET'S GO FIFA 2026</h2>
+                <p>Get ready for the most expansive FIFA World Cup™ history across North America! As 48 nations prepare to compete for glory across elite stadiums, we take a detailed look at the iconic titans who have shaped modern history on the pitch. Discover deep statistical history records of these elite legends below.</p>
+            </div>
+
+            <h2 class="section-title">Football Legends & Icons</h2>
+            <div class="legends-grid" id="football-legends-grid">
+                <!-- Injected via Script -->
+            </div>
+        </section>
 
         <!-- Embedded Live Streaming Frame Area -->
         <section class="live-stream-section">
             <h2 class="section-title">Live Presentation</h2>
             <div class="live-player-container">
-                <!-- Added autoplay=1 and mute=1 loop flags for direct auto launch playback -->
                 <iframe src="https://www.youtube.com/embed/f17J3AXVK5w?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen></iframe>
@@ -559,42 +734,33 @@
         </section>
     </div>
 
-    <!-- MOVIE DETAIL VIEW BLOCK -->
+    <!-- UNIFIED SUB-PAGE ROUTING DETAIL VIEW PANEL -->
     <div id="detail-view" class="view-section">
         <div class="container details-page">
-            <div class="back-btn" onclick="showHomeView()">← Back to Home</div>
+            <div id="dynamic-back-btn" class="back-btn" onclick="showHomeView()">← Back to Home</div>
             
             <div class="details-wrapper">
-                <img id="detail-img" class="details-poster" src="" alt="Poster View">
+                <img id="detail-img" class="details-poster" src="" alt="View Cover">
                 
                 <div class="details-main">
-                    <h1 id="detail-title">Movie Title</h1>
+                    <h1 id="detail-title">Title Text</h1>
                     
-                    <div class="details-strip">
+                    <div id="movie-badges-strip" class="details-strip">
                         <span class="strip-badge" id="detail-age-rating">PG</span>
                         <span class="strip-runtime" id="detail-runtime">2h 0m</span>
-                        <div class="genres-wrapper" id="detail-genres">
-                            <!-- Genre pills injected here -->
-                        </div>
+                        <div class="genres-wrapper" id="detail-genres"></div>
                     </div>
 
-                    <div class="details-label">Synopsis Description</div>
+                    <div id="dynamic-desc-label" class="details-label">Synopsis Description</div>
                     <p class="details-desc" id="detail-description">Description text content...</p>
 
-                    <div class="details-label">Principal Cast Members</div>
-                    <div class="cast-grid" id="detail-cast-grid">
-                        <!-- Cast info loops here -->
+                    <!-- Contextual Block: Swapped based on page type -->
+                    <div id="contextual-bottom-content">
+                        <!-- Cast grids or Trophy dashboards generated here -->
                     </div>
 
-                    <div class="meta-info-block">
-                        <div class="meta-item">
-                            <div>Theatrical Release</div>
-                            <div id="detail-release-date">10th July 2026</div>
-                        </div>
-                        <div class="meta-item">
-                            <div>Original Language</div>
-                            <div id="detail-language">en</div>
-                        </div>
+                    <div id="dynamic-meta-block" class="meta-info-block">
+                        <!-- Custom dynamic meta records injected here -->
                     </div>
                 </div>
             </div>
@@ -603,11 +769,12 @@
 
     <!-- Global Platform Footer -->
     <footer>
-        <p>&copy; 2026 MOVEXA. Experience the Next Chapter of Cinema.</p>
+        <p>&copy; 2026 MOVEXA Hub. Experience the Next Chapter of Entertainment & Sports.</p>
     </footer>
 
-    <!-- Movie Data & UI Navigation Routing Logic -->
+    <!-- Movie Data, Football Dataset & Application Script Infrastructure -->
     <script>
+        // --- DATASET DEFINITIONS ---
         const movieDataset = [
             {
                 id: "moana-2026",
@@ -669,16 +836,48 @@
             }
         ];
 
-        function renderUpcomingGrid() {
-            const gridContainer = document.getElementById('main-movies-grid');
-            gridContainer.innerHTML = '';
+        const footballDataset = [
+            {
+                id: "ronaldo",
+                name: "Cristiano Ronaldo",
+                subtitle: "Portugal • Forward",
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5IWYDlOtlTFuIMatBiHkncsLLQhGC5eeOg1C-o16jXg&s=10",
+                age: 41,
+                birthYear: 1985,
+                ballonsCount: 5,
+                allAwardsCount: 35,
+                description: "Cristiano Ronaldo stands as one of the most prolific goalscorers and supreme athletes in football history. Renowned for his unparalleled work ethic, aerial dominance, and lethal finishing accuracy across spells at Manchester United, Real Madrid, Juventus, and Al-Nassr, he has completely rewritten world record books. He remains the all-time leading goalscorer in men's international football history and the UEFA Champions League, continuously setting milestones well into his legendary veteran career."
+            },
+            {
+                id: "messi",
+                name: "Lionel Messi",
+                subtitle: "Argentina • Forward",
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkuvPcEN7uIpCXj-AbHGMDO72-2nZBFJVk-c7DjWM51bT4qWCVbtJMP8o&s=10",
+                age: 39,
+                birthYear: 1987,
+                ballonsCount: 8,
+                allAwardsCount: 46,
+                description: "Lionel Messi's sublime playmaking talent and astonishing goal return have cemented his status as football's preeminent genius. Spending the peak of his career at FC Barcelona, he engineered an era of unprecedented club dominance before capturing the elusive FIFA World Cup trophy with Argentina in 2022. Known for his supernatural dribbling, vision, and deadball precision, he continues to shape games globally in Major League Soccer with Inter Miami."
+            },
+            {
+                id: "neymar",
+                name: "Neymar Jr",
+                subtitle: "Brazil • Forward",
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF1ripQiGByZ40-0Q-RkE3FlaFKEB6lyqXCxZU-Qkx4A&s=10",
+                age: 34,
+                birthYear: 1992,
+                ballonsCount: 0,
+                allAwardsCount: 28,
+                description: "Neymar da Silva Santos Júnior carries forward Brazil's legendary lineage of flair, creativity, and expressive playstyle. Exploding onto the scene with Santos before establishing a terrifying European presence at Barcelona and Paris Saint-Germain, his elite stepovers, trickery, and decisive playmaking make him a unique attacking force. As Brazil's historic all-time top goalscorer in official fixtures, he remains an iconic figurehead for Al-Hilal and the Seleção."
+            }
+        ];
 
-            movieDataset.forEach(movie => {
-                const card = document.createElement('div');
-                card.className = 'movie-card';
-                card.onclick = () => openMovieDetail(movie.id);
-
-                card.innerHTML = `
+        // --- RENDER DOM GRIDS ---
+        function initializeHubs() {
+            // Render Movie Grid
+            const movieGrid = document.getElementById('main-movies-grid');
+            movieGrid.innerHTML = movieDataset.map(movie => `
+                <div class="movie-card" onclick="openMovieDetail('${movie.id}')">
                     <div class="poster-wrapper">
                         <span class="cinema-badge">${movie.cinemaBadge}</span>
                         <img class="movie-poster" src="${movie.poster}" alt="${movie.title}">
@@ -690,47 +889,215 @@
                             <span class="meta-tag">${movie.ageRating}</span>
                         </div>
                     </div>
-                `;
-                gridContainer.appendChild(card);
-            });
+                </div>
+            `).join('');
+
+            // Render Football Grid
+            const footballGrid = document.getElementById('football-legends-grid');
+            footballGrid.innerHTML = footballDataset.map(player => `
+                <div class="legend-card" onclick="openPlayerDetail('${player.id}')">
+                    <div class="legend-image-box">
+                        <img src="${player.poster}" alt="${player.name}">
+                    </div>
+                    <div class="legend-meta-box">
+                        <h3>${player.name}</h3>
+                        <span>${player.subtitle}</span>
+                    </div>
+                </div>
+            `).join('');
         }
 
-        function openMovieDetail(movieId) {
-            const movie = movieDataset.find(m => m.id === movieId);
+        // --- SINGLE-PAGE ROUTING INTERFACE CONTROLLERS ---
+        function openMovieDetail(id) {
+            const movie = movieDataset.find(m => m.id === id);
             if (!movie) return;
 
+            // Layout reset configurations
+            const backBtn = document.getElementById('dynamic-back-btn');
+            backBtn.className = "back-btn"; 
+            backBtn.innerText = "← Back to Movies Hub";
+
+            document.getElementById('movie-badges-strip').style.display = 'flex';
+            document.getElementById('dynamic-desc-label').className = 'details-label';
+            document.getElementById('dynamic-desc-label').innerText = 'Synopsis Description';
+            document.getElementById('dynamic-meta-block').className = 'meta-info-block';
+
+            // Inject foundational variables
             document.getElementById('detail-img').src = movie.poster;
-            document.getElementById('detail-img').alt = movie.title;
             document.getElementById('detail-title').innerText = movie.title;
             document.getElementById('detail-age-rating').innerText = movie.ageRating;
             document.getElementById('detail-runtime').innerText = movie.runtime;
             document.getElementById('detail-description').innerText = movie.description;
-            document.getElementById('detail-release-date').innerText = movie.releaseDate;
-            document.getElementById('detail-language').innerText = movie.language;
 
-            const genresContainer = document.getElementById('detail-genres');
-            genresContainer.innerHTML = movie.genres.map(g => `<span class="genre-pill">${g}</span>`).join('');
+            document.getElementById('detail-genres').innerHTML = movie.genres.map(g => `<span class="genre-pill">${g}</span>`).join('');
 
-            const castContainer = document.getElementById('detail-cast-grid');
-            castContainer.innerHTML = movie.cast.map(member => `
-                <div class="cast-box">
-                    <div class="cast-real-name">${member.actor}</div>
-                    <div class="cast-role">${member.character}</div>
+            // Contextual lower injection: Cast Member Grid
+            document.getElementById('contextual-bottom-content').innerHTML = `
+                <div class="details-label">Principal Cast Members</div>
+                <div class="cast-grid">
+                    ${movie.cast.map(m => `
+                        <div class="cast-box">
+                            <div class="cast-real-name">${m.actor}</div>
+                            <div class="cast-role">${m.character}</div>
+                        </div>
+                    `).join('')}
                 </div>
-            `).join('');
+            `;
 
-            document.getElementById('home-view').classList.remove('active-view');
-            document.getElementById('detail-view').classList.add('active-view');
+            // Metadata fields update
+            document.getElementById('dynamic-meta-block').innerHTML = `
+                <div class="meta-item"><div>Theatrical Release</div><div>${movie.releaseDate}</div></div>
+                <div class="meta-item"><div>Original Language</div><div>${movie.language.toUpperCase()}</div></div>
+            `;
+
+            switchView('detail');
+        }
+
+        function openPlayerDetail(id) {
+            const player = footballDataset.find(p => p.id === id);
+            if (!player) return;
+
+            // UI customization parameters matching the football aesthetic
+            const backBtn = document.getElementById('dynamic-back-btn');
+            backBtn.className = "back-btn football-back";
+            backBtn.innerText = "← Back to Home / FIFA Hub";
+
+            document.getElementById('movie-badges-strip').style.display = 'none';
+            document.getElementById('dynamic-desc-label').className = 'details-label football-lbl';
+            document.getElementById('dynamic-desc-label').innerText = 'Career Biography';
+            document.getElementById('dynamic-meta-block').className = 'meta-info-block football-block';
+
+            // Inject player specs
+            document.getElementById('detail-img').src = player.poster;
+            document.getElementById('detail-title').innerText = player.name;
+            document.getElementById('detail-description').innerText = player.description;
+
+            // Contextual lower injection: Trophy Accolades Matrix
+            document.getElementById('contextual-bottom-content').innerHTML = `
+                <div class="details-label football-lbl">Accolades & Trophy Matrix</div>
+                <div class="awards-container-box">
+                    <div class="stat-card">
+                        <div class="count">${player.ballonsCount}</div>
+                        <div class="lbl">Ballon d'Or Awards</div>
+                    </div>
+                    <div class="stat-card all-awards">
+                        <div class="count">${player.allAwardsCount}</div>
+                        <div class="lbl">Total Career Trophies</div>
+                    </div>
+                </div>
+            `;
+
+            // Metadata matrix update
+            document.getElementById('dynamic-meta-block').innerHTML = `
+                <div class="meta-item"><div>Current Age</div><div>${player.age} Years Old</div></div>
+                <div class="meta-item"><div>Year of Birth</div><div>${player.birthYear}</div></div>
+            `;
+
+            switchView('detail');
+        }
+
+        function switchView(target) {
+            if (target === 'home') {
+                document.getElementById('detail-view').classList.remove('active-view');
+                document.getElementById('home-view').classList.add('active-view');
+            } else {
+                document.getElementById('home-view').classList.remove('active-view');
+                document.getElementById('detail-view').classList.add('active-view');
+            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function showHomeView() {
-            document.getElementById('detail-view').classList.remove('active-view');
-            document.getElementById('home-view').classList.add('active-view');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            switchView('home');
         }
 
-        renderUpcomingGrid();
+
+        // --- CHROME COMPLIANT AUTOMATIC background PLAYLIST AUDIO ENGINE ---
+        // Curated YouTube single-token IDs from your sequence links
+        const audioPlaylistArray = [
+            "fcnDmrtj6Sk", // Track 1
+            "BAkqJT_sMKQ", // Track 2
+            "IMJXmn-3Jdo", // Track 3
+            "eXtPsLLc7qM", // Track 4
+            "DF3XjEhJ40Y"  // Track 5
+        ];
+
+        let playlistIndex = 0;
+        let backgroundAudioEngine;
+
+        // Fetching the base IFrame script package from YouTube servers asynchronously
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const scriptMarker = document.getElementsByTagName('script')[0];
+        scriptMarker.parentNode.insertBefore(tag, scriptMarker);
+
+        // Core listener called automatically by package download completion flag
+        function onYouTubeIframeAPIReady() {
+            backgroundAudioEngine = new YT.Player('audio-engine-mount', {
+                height: '0',
+                width: '0',
+                videoId: audioPlaylistArray[playlistIndex],
+                playerVars: {
+                    'autoplay': 1,
+                    'controls': 0,
+                    'disablekb': 1,
+                    'fs': 0,
+                    'rel': 0,
+                    'showinfo': 0,
+                    'iv_load_policy': 3
+                },
+                events: {
+                    'onReady': triggerEnginePlayback,
+                    'onStateChange': handleEngineStateCycling,
+                    'onError': skipBrokenAudioEntry
+                }
+            });
+        }
+
+        function triggerEnginePlayback(event) {
+            event.target.playVideo();
+            updateLiveAudioLabel();
+        }
+
+        function handleEngineStateCycling(event) {
+            // Check if track ended state matching (YT.PlayerState.ENDED) is reached
+            if (event.data === YT.PlayerState.ENDED) {
+                cascadeNextTrack();
+            }
+        }
+
+        function skipBrokenAudioEntry(event) {
+            console.warn("Audio file streaming path restricted. Shifting sequence context forward.");
+            cascadeNextTrack();
+        }
+
+        function cascadeNextTrack() {
+            playlistIndex++;
+            if (playlistIndex >= audioPlaylistArray.length) {
+                playlistIndex = 0; // Seamless continuous looping back to track 1
+            }
+            backgroundAudioEngine.loadVideoById(audioPlaylistArray[playlistIndex]);
+            updateLiveAudioLabel();
+        }
+
+        function updateLiveAudioLabel() {
+            const textBadge = document.getElementById('track-status');
+            if (textBadge) {
+                textBadge.innerText = `Playing Track ${playlistIndex + 1} of ${audioPlaylistArray.length}`;
+            }
+        }
+
+        // Browser policy workaround: Wake up engine instantly on structural mouse interact 
+        document.body.addEventListener('click', () => {
+            if (backgroundAudioEngine && typeof backgroundAudioEngine.getPlayerState === 'function') {
+                if (backgroundAudioEngine.getPlayerState() !== YT.PlayerState.PLAYING) {
+                    backgroundAudioEngine.playVideo();
+                }
+            }
+        }, { once: true });
+
+        // Build internal assets layout arrays on load completion
+        initializeHubs();
     </script>
 </body>
 </html>
